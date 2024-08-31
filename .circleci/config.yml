@@ -1,0 +1,32 @@
+version: 2.1
+executors:
+  default:
+    docker:
+      - image: circleci/node:14
+
+jobs:
+  build:
+    executor: default
+    steps:
+      - checkout
+
+      - run:
+          name: Install dependencies
+          command: npm install
+
+      - run:
+          name: Build Next.js app
+          command: npm run build
+
+      - run:
+          name: Upload build to S3
+          command: |
+            aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+            aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+            aws s3 sync ./out s3://menmoneymeaning
+      - run:
+          name: Invalidate CloudFront distribution
+          command: |
+            aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+            aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+            aws cloudfront create-invalidation --distribution-id E1GGPRX84AEGIR --paths "/*"
