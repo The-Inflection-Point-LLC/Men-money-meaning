@@ -27,7 +27,6 @@ jobs:
           aws_secret_access_key: AWS_SECRET_ACCESS_KEY
 
       - aws-s3/sync:
-          name: Upload build to S3
           from: ./out
           to: s3://menmoneymeaning
 
