@@ -21,12 +21,17 @@ jobs:
       - run:
           name: Build Next.js app
           command: npm run build
+          
+      - aws-cli/install:
+          name: Install AWS CLI
+
       - aws-cli/setup:
           name: Configure AWS CLI
           aws-access-key-id: $AWS_ACCESS_KEY_ID
           aws-secret-access-key: $AWS_SECRET_ACCESS_KEY
           aws-region: us-east-2
-      - aws-s3/copy:
+
+      - aws-s3/sync:
           name: Upload build to S3
           from: ./out
           to: s3://menmoneymeaning
