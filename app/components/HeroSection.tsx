@@ -74,9 +74,9 @@ const HeroSection = (props: HeroSectionProps) => {
                 </div>
                 {props.img && (
                     <div className="lg:ml-16">
-                        <img src={props.img.src} alt="Hero" className="lg:flex hidden" width={600} height={380} />
+                        <Image src={props.img.src} alt="Hero" className="lg:flex hidden" width={600} height={380} />
                         <div className="lg:h-96 max-lg:flex hidden">
-                            <img src={props.img.src} alt="Hero" width={380} height={380} />
+                            <Image src={props.img.src} alt="Hero" width={380} height={380} />
                         </div>
                     </div>
                 )}
