@@ -7,7 +7,8 @@ const nextConfig = {
     },
     output: 'export',
     images: {
-        unoptimized: true,
+        loader: 'custom',
+        loaderFile: './loaders/loader.js',
     },
 };
 
