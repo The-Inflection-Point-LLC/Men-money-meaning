@@ -23,10 +23,8 @@ jobs:
           command: npm run build
 
       - aws-cli/setup:
-          name: Configure AWS CLI
           aws_access_key_id: AWS_ACCESS_KEY_ID
           aws_secret_access_key: AWS_SECRET_ACCESS_KEY
-          aws_region: us-east-2
 
       - aws-s3/sync:
           name: Upload build to S3
