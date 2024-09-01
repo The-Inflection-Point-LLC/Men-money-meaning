@@ -23,11 +23,13 @@ jobs:
           command: npm run build
 
       - aws-cli/setup:
+          profile_name: default
           aws_access_key_id: AWS_ACCESS_KEY_ID
           aws_secret_access_key: AWS_SECRET_ACCESS_KEY
           region: us-east-2
 
       - aws-s3/sync:
+          profile_name: default
           from: out
           to: s3://menmoneymeaning
 
