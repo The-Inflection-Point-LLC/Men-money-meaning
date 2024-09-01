@@ -24,9 +24,9 @@ jobs:
 
       - aws-cli/setup:
           name: Configure AWS CLI
-          aws-access-key-id: $AWS_ACCESS_KEY_ID
-          aws-secret-access-key: $AWS_SECRET_ACCESS_KEY
-          aws-region: us-east-2
+          aws_access_key_id: $AWS_ACCESS_KEY_ID
+          aws_secret_access_key: $AWS_SECRET_ACCESS_KEY
+          aws_region: us-east-2
 
       - aws-s3/sync:
           name: Upload build to S3
