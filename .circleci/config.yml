@@ -22,8 +22,6 @@ jobs:
           name: Build Next.js app
           command: npm run build
 
-      - aws-cli/install:
-
       - aws-cli/setup:
           name: Configure AWS CLI
           aws-access-key-id: $AWS_ACCESS_KEY_ID
