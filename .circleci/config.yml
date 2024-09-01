@@ -21,9 +21,8 @@ jobs:
       - run:
           name: Build Next.js app
           command: npm run build
-          
+
       - aws-cli/install:
-          name: Install AWS CLI
 
       - aws-cli/setup:
           name: Configure AWS CLI
