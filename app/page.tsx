@@ -1,7 +1,7 @@
 "use client";
 import Navbar from "@/components/Navbar";
 import Hero from "@/public/assets/Hero.svg";
-import MainHeroImage from "@/public/assets/Groupofmen.jpeg";
+import MainHeroImage from "/assets/Groupofmen.jpeg";
 import HeroSection from "./components/HeroSection";
 import InterestingSection from "./components/InterestingSection";
 import EnhancedByAI from "@/public/assets/winning-the-race-silhouette.jpg";
