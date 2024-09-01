@@ -43,7 +43,7 @@ export default function Home() {
                 //desc={`Our sole purpose is to provide you with the knowledge, skills and experiences to create stronger relationships!`}
                 //title2={`Our point of view`}
                 desc2={`<t>Connect</t>\n<t>Have fun</t>\n<t>Take on life challenges</t>\n`}
-                img={MainHeroImage}
+                img={'/assets/Groupofmen.jpeg'}
                 // btns={[{ btnText: "Learn More", type: "video", link: "2g811Eo7K8U", title: "Random" }]}
             />
 
