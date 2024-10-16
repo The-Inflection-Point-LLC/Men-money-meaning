@@ -98,7 +98,7 @@ const GetInTouchSection = (props: GetInTouchSectionProps) => {
       };
 
       const response = await fetch(
-        "https://api.menmoneymeaning.com/api/EmailSender/contact/newContact",
+        "https://api.makingadults.com/api/EmailSender/contact/newContact",
         {
           method: "POST",
           headers: {
