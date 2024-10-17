@@ -86,19 +86,19 @@ const GetInTouchSection = (props: GetInTouchSectionProps) => {
       const formData = contactForm.getValues();
 
       const payload = {
-        checkedValue: formData.subject.map((subjectId) => {
-          const item = items.find((item) => item.id === subjectId);
-          return item ? item.label : subjectId;
-        }),
+        // checkedValue: formData.subject.map((subjectId) => {
+        //   const item = items.find((item) => item.id === subjectId);
+        //   return item ? item.label : subjectId;
+        // }),
         name: formData.from_name,
-        companyName: formData.companyName,
+        // companyName: formData.companyName,
         email: formData.from_email,
-        phone: formData.phone,
-        message: formData.message,
+        // phone: formData.phone,
+        // message: formData.message,
       };
 
       const response = await fetch(
-        "https://api.makingadults.com/api/EmailSender/contact/newContact",
+        "https://api.menmoneymeaning.com/api/EmailSender/contact/newContact",
         {
           method: "POST",
           headers: {
@@ -158,63 +158,18 @@ const GetInTouchSection = (props: GetInTouchSectionProps) => {
           onSubmit={sendEmail}
           className="space-x-8 flex md:flex-row flex-col md:justify-between max-md:items-center lg:w-2/3 md:max-w-[900px] w-full"
         >
-          <div className="flex flex-col gap-4 md:w-2/5 w-full items-start lg:items-end md:border-gray-300 p-4">
-            <div className="flex flex-col-reverse gap-4">
-              {items.map((item) => (
-                <FormField
-                  key={item.id}
-                  control={contactForm.control}
-                  name="subject"
-                  render={({ field }) => (
-                    <FormItem
-                      key={item.id}
-                      className="flex flex-row items-center space-x-3 space-y-0"
-                    >
-                      <FormControl>
-                        <Checkbox
-                          checked={field.value?.includes(item.id)}
-                          onCheckedChange={(checked) => {
-                            return checked
-                              ? field.onChange([...field.value, item.id])
-                              : field.onChange(
-                                  field.value?.filter((value) => value !== item.id)
-                                );
-                          }}
-                          className="lg:w-6 lg:h-6 h-4 w-4"
-                          name={item.id}
-                        />
-                      </FormControl>
-                      <FormLabel className="font-normal lg:text-xl sm:text-lg">
-                        {item.label}
-                      </FormLabel>
-                    </FormItem>
-                  )}
-                />
-              ))}
-            </div>
+          <div className="flex flex-col max-w-[400px] text-left">
+                    <HighlightText
+                        className="text-2xl text-gray-500"
+                        text="See his bio for his phone number or connect by email and Mitch will reach out to you."
+                    />
           </div>
           <div className="flex flex-col gap-4 max-md:items-start items-center justify-center md:w-3/5 w-full">
             <FormField
               control={contactForm.control}
-              name="from_name"
-              render={({ field }) => (
-                <FormItem className="lg:max-w-[400px] w-full">
-                  <FormControl>
-                    <Input
-                      placeholder="Name"
-                      icon={<UserRound color="#DF7A2E" />}
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={contactForm.control}
               name="from_email"
               render={({ field }) => (
-                <FormItem className="w-full lg:max-w-[400px] ">
+                <FormItem className="w-full">
                   <FormControl>
                     <Input
                       required
@@ -227,56 +182,11 @@ const GetInTouchSection = (props: GetInTouchSectionProps) => {
                 </FormItem>
               )}
             />
-            <FormField
-              control={contactForm.control}
-              name="phone"
-              render={({ field }) => (
-                <FormItem className="w-full lg:max-w-[400px] ">
-                  <FormControl>
-                    <Input
-                      icon={<PhoneCall color="#DF7A2E" />}
-                      placeholder="Phone"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={contactForm.control}
-              name="companyName"
-              render={({ field }) => (
-                <FormItem className="w-full lg:max-w-[400px]">
-                  <FormControl>
-                    <Input placeholder="Company Name" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={contactForm.control}
-              name="message"
-              render={({ field }) => (
-                <FormItem className="w-full lg:max-w-[400px]">
-                  <FormControl>
-                    <Textarea
-                      icon={<MessageSquareText color="#DF7A2E" />}
-                      placeholder="Message"
-                      rows={5}
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
             <Button
               type="submit"
               value="Send"
               size={"lg"}
-              className="max-md:w-full flex items-center gap-4"
+              className="w-full flex items-center justify-center gap-4"
             >
               Submit {isLoading && <LoaderIcon className="w-6 h-6" />}
             </Button>
